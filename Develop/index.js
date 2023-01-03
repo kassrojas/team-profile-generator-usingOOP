@@ -1,3 +1,4 @@
+const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -89,11 +90,13 @@ const employeeInput = async () => {
             newStaff.push(newIntern);
     }
 
+    return input;
+
 };
 
 async function promptUser () {
-    await employeeInput();
-
+    const employeeData = await employeeInput();
+    
     const addMembers = await inquirer.prompt ([
         {
             type: "list",
@@ -102,30 +105,36 @@ async function promptUser () {
             name: "createNew",
         }
     ])
-
+    
     if (addMembers.createNew === "Create A New Member"){
         return promptUser();
-    } else if (addMembers.createNew === "Create A Team"){
-        return createTeam();
     }
+    
+    return createTeam(newStaff);
 }
 
 
-const createTeam = data => {
-    console.log("createTeam() reached");
+const createTeam = function (newStaff) {
     
-    fs.writeFileSync('newTeam.html', data, error => {
+    const stringData = JSON.stringify(newStaff);
+    
+    generateTeam(newStaff);
+    console.log(newStaff);
+    
+    fs.writeFileSync('newTeam.html', stringData, error => {
         if (error){
-            console.log(error);
+            console.log('error' , error);
+        } else{
+            console.log('Success!', stringData);
         }
-        console.log("Success!");
     })
 };
 
 promptUser()
-.then(input => {
-    return generateTeam(input);
-})
-.then(data => {
-    return writeFile(data);
-})
+// .then(input => {
+//     console.log(input);
+//     return generateTeam(input);
+// })
+// .then (data => {
+//     return createTeam(data);
+// })
