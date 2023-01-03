@@ -139,11 +139,4 @@ async function promptUser () {
 //     })
 // };
 
-promptUser()
-.then(newStaffArray => {
-    console.log(`NEW STAFF: ${newStaffArray}`);
-    return generateTeam(newStaffArray);
-})
-// .then (data => {
-//     return createTeam(data);
-// })
+promptUser();
