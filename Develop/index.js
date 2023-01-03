@@ -46,6 +46,7 @@ const employeeInput = async () => {
             input.name,
             input.id, 
             input.email,
+            input.role,
             managerInput.officeNumber, 
             );
             
@@ -65,6 +66,7 @@ const employeeInput = async () => {
             input.name,
             input.id, 
             input.email,
+            input.role,
             engineerInput.github, 
             );
             
@@ -84,13 +86,14 @@ const employeeInput = async () => {
             input.name,
             input.id, 
             input.email,
+            input.role,
             internInput.school, 
             );
             
             newStaff.push(newIntern);
     }
 
-    return newStaff;
+    console.log(newStaff);
 
 };
 
@@ -109,34 +112,10 @@ async function promptUser () {
     if (addMembers.createNew === "Create A New Member"){
         return promptUser();
     } else {
-        fs.writeFileSync('newTeam.html', generateTeam({...newStaff}))
-        console.log("team is made")
-        
+        fs.writeFileSync('newTeam.html', generateTeam([...newStaff]))
+        console.log('spread operator ', ...newStaff);
+        console.log("team is made");
     }
-    
-    return createTeam(newStaff);
 }
-
-
-// const createTeam = function (newStaff) {
-    
-//     const stringData = JSON.stringify(newStaff);
-    
-//     const newStaffArray = Object.entries(newStaff);
-//     console.log('new staff array ' , newStaffArray);
-
-//     generateTeam(newStaffArray);
-//     console.log('type of ', typeof(newStaff)); //object
-//     console.log('type of newstaffarr', typeof(newStaffArr)); //undefined
-//     console.log('type of ', typeof(stringData)); //string
-    
-//     fs.writeFileSync('newTeam.html', stringData, error => {
-//         if (error){
-//             console.log('error' , error);
-//         } else{
-//             console.log('Success!', stringData);
-//         }
-//     })
-// };
 
 promptUser();
