@@ -1,5 +1,5 @@
-const Employee = require("./Employee");
+const TeamManager = require("./TeamManager");
 
-class Engineer extends Employee {}
+class Engineer extends TeamManager {}
 
 module.exports = Engineer;

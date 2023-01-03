@@ -1,3 +1,10 @@
-class Employee {}
+class TeamManager {
+    constructor(managerName, id, email, officeNum){
+        this.managerName = managerName;
+        this.id = id;
+        this.email = email;
+        this.officeNum = officeNum;
+    }
+}
 
-module.exports = Employee;
+module.exports = TeamManager;
