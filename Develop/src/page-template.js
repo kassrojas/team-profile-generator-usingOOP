@@ -1,10 +1,5 @@
 // create the team
-const generateTeam = (team) => {
-    fs.writeFileSync("./index.html", newStaffData)
-};
-
-// export function to generate entire page
-module.exports = (team) => {
+const generateTeam = ({ name, id, email, role, officeNumber, github, school }) => {
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -22,27 +17,27 @@ module.exports = (team) => {
     </header>
     <main>
     <article>
-        <h2>Manager</h2>
+        <h2>${name}: ${role}</h2>
         <ul>
-        <li>ID: ${input.id}</li>
-        <li>Email: <a href="${input.email}">${input.email}</a></li>
-        <li>Office Number: ${input.officeNum}</li>
+        <li>ID: ${id}</li>
+        <li>Email: <a href="${email}">${email}</a></li>
+        <li>Office Number: ${officeNumber} </li>
         </ul>
     </article>
     <article>
-        <h2>Engineer</h2>
+        <h2>${name}: ${role}</h2>
         <ul>
-        <li>ID: ${input.id}</li>
-        <li>Email: <a href="${input.email}">${input.email}</a></li>
-        <li>GitHub: <a href="https://www.github.com/${input.github}">${input.github}</a></li>
+        <li>ID: ${id}</li>
+        <li>Email: <a href="$email}">${email}</a></li>
+        <li>GitHub: <a href="https://www.github.com/${github}">${github}</a></li>
         </ul>
     </article>
     <article>
-        <h2>Intern</h2>
+        <h2>${name}: ${role}</h2>
         <ul>
-        <li>ID: ${input.id}</li>
-        <li>Email: <a href="#${input.email}">${input.email}</a></li>
-        <li>School: ${input.school}</li>
+        <li>ID: ${id}</li>
+        <li>Email: <a href="#${email}">${email}</a></li>
+        <li>School: ${school}</li>
         </ul>
     </article>
     </main>
@@ -53,3 +48,6 @@ module.exports = (team) => {
 </html>
     `
 };
+
+// export function to generate entire page
+module.exports = generateTeam();

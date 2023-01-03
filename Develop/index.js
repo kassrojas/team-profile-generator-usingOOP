@@ -1,7 +1,7 @@
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-// const generateTeam = require('./src/page-template');
+const generateTeam = require('./src/page-template');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -110,8 +110,22 @@ async function promptUser () {
     }
 }
 
-promptUser();
 
-const createTeam = () => {
+const createTeam = data => {
     console.log("createTeam() reached");
-}
+    
+    fs.writeFileSync('newTeam.html', data, error => {
+        if (error){
+            console.log(error);
+        }
+        console.log("Success!");
+    })
+};
+
+promptUser()
+.then(input => {
+    return generateTeam(input);
+})
+.then(data => {
+    return writeFile(data);
+})
