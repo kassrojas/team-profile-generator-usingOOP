@@ -46,7 +46,7 @@ const employeeInput = async () => {
             input.name,
             input.id, 
             input.email,
-            input.officeNumber, 
+            managerInput.officeNumber, 
             );
             
             newStaff.push(newManager);
@@ -65,7 +65,7 @@ const employeeInput = async () => {
             input.name,
             input.id, 
             input.email,
-            input.github, 
+            engineerInput.github, 
             );
             
             newStaff.push(newEngineer);
@@ -84,18 +84,18 @@ const employeeInput = async () => {
             input.name,
             input.id, 
             input.email,
-            input.school, 
+            internInput.school, 
             );
             
             newStaff.push(newIntern);
     }
 
-    return input;
+    return newStaff;
 
 };
 
 async function promptUser () {
-    const employeeData = await employeeInput();
+    await employeeInput();
     
     const addMembers = await inquirer.prompt ([
         {
@@ -118,8 +118,13 @@ const createTeam = function (newStaff) {
     
     const stringData = JSON.stringify(newStaff);
     
-    generateTeam(newStaff);
-    console.log(newStaff);
+    const newStaffArray = Object.entries(newStaff);
+    console.log('new staff array ' , newStaffArray);
+
+    generateTeam(newStaffArray);
+    console.log('type of ', typeof(newStaff)); //object
+    console.log('type of newstaffarr', typeof(newStaffArr)); //undefined
+    console.log('type of ', typeof(stringData)); //string
     
     fs.writeFileSync('newTeam.html', stringData, error => {
         if (error){
@@ -131,10 +136,10 @@ const createTeam = function (newStaff) {
 };
 
 promptUser()
-// .then(input => {
-//     console.log(input);
-//     return generateTeam(input);
-// })
+.then(newStaffArray => {
+    console.log(`NEW STAFF: ${newStaffArray}`);
+    return generateTeam(newStaffArray);
+})
 // .then (data => {
 //     return createTeam(data);
 // })
