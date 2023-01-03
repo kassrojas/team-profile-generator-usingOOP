@@ -28,12 +28,12 @@ const questions = async () => {
         {
             type: 'list',
             message: 'What is your current role?',
-            choices: ["Manager", "Engineer", "Intern"],
+            choices: ["Manager", "Engineer", "Intern", "I'm done building my team!"],
             name: 'role',
         }
     ])
     
-    // if manager is selected
+    // if Manager is selected
     if (input.role === 'Manager'){
         const managerInput = await inquirer
         .prompt ([
@@ -53,44 +53,44 @@ const questions = async () => {
         //adds newManager to newStaff array
         newStaff.push(newManager);
     }
-    // if manager is selected
-    if (input.role === 'Manager'){
-        const managerInput = await inquirer
+    // if Engineer is selected
+    if (input.role === 'Engineer'){
+        const engineerInput = await inquirer
         .prompt ([
             {
-                message: 'What is your office number?',
-                name: 'officeNumber',
+                message: 'What is your GitHub username?',
+                name: 'github',
             },
         ])
     
-        const newManager = new Manager(
+        const newEngineer = new Engineer(
             input.name,
             input.id, 
             input.email,
-            input.officeNumber, 
+            input.github, 
         );
         
-        //adds newManager to newStaff array
-        newStaff.push(newManager);
+        //adds newEngineer to newStaff array
+        newStaff.push(newEngineer);
     }
-    // if manager is selected
-    if (input.role === 'Manager'){
-        const managerInput = await inquirer
+    // if Intern is selected
+    if (input.role === 'Intern'){
+        const internInput = await inquirer
         .prompt ([
             {
-                message: 'What is your office number?',
-                name: 'officeNumber',
+                message: 'What is your school\'s name?',
+                name: 'school',
             },
         ])
     
-        const newManager = new Manager(
+        const newIntern = new Intern(
             input.name,
             input.id, 
             input.email,
-            input.officeNumber, 
+            input.school, 
         );
         
         //adds newManager to newStaff array
-        newStaff.push(newManager);
+        newStaff.push(newIntern);
     }
 }
