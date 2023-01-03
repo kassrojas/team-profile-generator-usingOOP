@@ -45,7 +45,6 @@ const generateTeam = (newStaff) => {
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <title>Team Generator</title>   
 </head>
-
 <body>
     <header>
     <h1>My Team</h1>

@@ -108,32 +108,36 @@ async function promptUser () {
     
     if (addMembers.createNew === "Create A New Member"){
         return promptUser();
+    } else {
+        fs.writeFileSync('newTeam.html', generateTeam({...newStaff}))
+        console.log("team is made")
+        
     }
     
     return createTeam(newStaff);
 }
 
 
-const createTeam = function (newStaff) {
+// const createTeam = function (newStaff) {
     
-    const stringData = JSON.stringify(newStaff);
+//     const stringData = JSON.stringify(newStaff);
     
-    const newStaffArray = Object.entries(newStaff);
-    console.log('new staff array ' , newStaffArray);
+//     const newStaffArray = Object.entries(newStaff);
+//     console.log('new staff array ' , newStaffArray);
 
-    generateTeam(newStaffArray);
-    console.log('type of ', typeof(newStaff)); //object
-    console.log('type of newstaffarr', typeof(newStaffArr)); //undefined
-    console.log('type of ', typeof(stringData)); //string
+//     generateTeam(newStaffArray);
+//     console.log('type of ', typeof(newStaff)); //object
+//     console.log('type of newstaffarr', typeof(newStaffArr)); //undefined
+//     console.log('type of ', typeof(stringData)); //string
     
-    fs.writeFileSync('newTeam.html', stringData, error => {
-        if (error){
-            console.log('error' , error);
-        } else{
-            console.log('Success!', stringData);
-        }
-    })
-};
+//     fs.writeFileSync('newTeam.html', stringData, error => {
+//         if (error){
+//             console.log('error' , error);
+//         } else{
+//             console.log('Success!', stringData);
+//         }
+//     })
+// };
 
 promptUser()
 .then(newStaffArray => {
