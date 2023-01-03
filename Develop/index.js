@@ -1,18 +1,16 @@
 const Manager = require('./lib/Manager');
-// const Engineer = require('./lib/Engineer');
-// const Intern = require('./lib/Intern');
-// const generateTeamMembers = require('./src/page-template');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+// const generateTeam = require('./src/page-template');
 const inquirer = require('inquirer');
-const prompt = inquirer.createPromptModule();
 const fs = require('fs');
 
 // set empty array to add newStaff into
 const newStaff = [];
 
 // initial questions for all employees
-const questions = async () => {
-    const input = await inquirer
-    .prompt([
+const employeeInput = async () => {
+    const input = await inquirer.prompt([
         {
             message: 'What is your name?',
             name: 'name',
@@ -28,9 +26,9 @@ const questions = async () => {
         {
             type: 'list',
             message: 'What is your current role?',
-            choices: ["Manager", "Engineer", "Intern", "I'm done building my team!"],
+            choices: ["Manager", "Engineer", "Intern"],
             name: 'role',
-        }
+        },
     ])
     
     // if Manager is selected
@@ -42,16 +40,15 @@ const questions = async () => {
                 name: 'officeNumber',
             },
         ])
-    
+        
         const newManager = new Manager(
             input.name,
             input.id, 
             input.email,
             input.officeNumber, 
-        );
-        
-        //adds newManager to newStaff array
-        newStaff.push(newManager);
+            );
+            
+            newStaff.push(newManager);
     }
     // if Engineer is selected
     if (input.role === 'Engineer'){
@@ -62,16 +59,15 @@ const questions = async () => {
                 name: 'github',
             },
         ])
-    
+        
         const newEngineer = new Engineer(
             input.name,
             input.id, 
             input.email,
             input.github, 
-        );
-        
-        //adds newEngineer to newStaff array
-        newStaff.push(newEngineer);
+            );
+            
+            newStaff.push(newEngineer);
     }
     // if Intern is selected
     if (input.role === 'Intern'){
@@ -82,15 +78,40 @@ const questions = async () => {
                 name: 'school',
             },
         ])
-    
+        
         const newIntern = new Intern(
             input.name,
             input.id, 
             input.email,
             input.school, 
-        );
-        
-        //adds newManager to newStaff array
-        newStaff.push(newIntern);
+            );
+            
+            newStaff.push(newIntern);
     }
+
+};
+
+async function promptUser () {
+    await employeeInput();
+
+    const addMembers = await inquirer.prompt ([
+        {
+            type: "list",
+            message: "Select your next step",
+            choices: ["Create A New Member", "Create A Team"],
+            name: "createNew",
+        }
+    ])
+
+    if (addMembers.createNew === "Create A New Member"){
+        return promptUser();
+    } else if (addMembers.createNew === "Create A Team"){
+        return createTeam();
+    }
+}
+
+promptUser();
+
+const createTeam = () => {
+    console.log("createTeam() reached");
 }

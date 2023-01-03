@@ -1,6 +1,6 @@
 // create the team
-const generateTeamMembers = (team) => {
-
+const generateTeam = (team) => {
+    fs.writeFileSync("./index.html", newStaffData)
 };
 
 // export function to generate entire page
