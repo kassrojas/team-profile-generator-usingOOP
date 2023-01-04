@@ -27,7 +27,7 @@ describe("Intern", () => {
     describe ("getRole()", () => {
         it("should return 'Intern' from getRole()", () => {
             const testCase = "Intern";
-            const intern = new Intern("Boo", 101, "test@email.com", "someUserName");
+            const intern = new Intern("Boo", 101, "test@email.com", "someUserName", testCase);
             expect(intern.getRole()).toBe(testCase);
         })
     });

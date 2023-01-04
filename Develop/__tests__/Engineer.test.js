@@ -1,5 +1,5 @@
 const Engineer = require("../lib/Engineer");
-// const Employee = require("../lib/Employee");
+
 
 describe("Engineer", () => {
     describe ("create instance of Engineer", () => {
@@ -11,9 +11,8 @@ describe("Engineer", () => {
     
     describe ("set github", () => {
         it("should set github username using constructor arguments", () => {
-            // const employee = new Employee("Boo", 101, "test@email.com");
             const testCase = "someUserName";
-            const engineer = new Engineer(testCase);
+            const engineer = new Engineer("Boo", 101, "test@email.com", "Engineer", testCase);
             expect(engineer.github).toEqual(testCase);
         })
     });
@@ -21,7 +20,7 @@ describe("Engineer", () => {
     describe ("getGithub()", () => {
         it("should return github username from getGithub()", () => {
             const testCase = "someUserName";
-            const engineer = new Engineer("Boo", 101, "test@email.com", testCase);
+            const engineer = new Engineer("Boo", 101, "test@email.com", "Engineer", testCase);
             expect(engineer.getGithub()).toBe(testCase);
         })
     });
@@ -29,7 +28,7 @@ describe("Engineer", () => {
     describe ("getRole()", () => {
         it("should return 'Engineer' from getRole()", () => {
             const testCase = "Engineer";
-            const engineer = new Engineer("Boo", 101, "test@email.com", "someUserName");
+            const engineer = new Engineer("Boo", 101, "test@email.com", testCase, "someUserName");
             expect(engineer.getRole()).toBe(testCase);
         })
     });

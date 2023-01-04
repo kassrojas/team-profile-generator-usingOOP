@@ -15,14 +15,17 @@ const employeeInput = async () => {
         {
             message: 'What is your name?',
             name: 'name',
+            default: 'John Doe',
         },
         {
             message: 'What is your ID number?',
             name: 'id',
+            default: '001',
         },
         {
             message: 'What is your email?',
             name: 'email',
+            default: 'test@email.com',
         },
         {
             type: 'list',
@@ -39,6 +42,7 @@ const employeeInput = async () => {
             {
                 message: 'What is your office number?',
                 name: 'officeNumber',
+                default: '002',
             },
         ])
         
@@ -59,6 +63,7 @@ const employeeInput = async () => {
             {
                 message: 'What is your GitHub username?',
                 name: 'github',
+                default: 'username',
             },
         ])
         
@@ -79,6 +84,7 @@ const employeeInput = async () => {
             {
                 message: 'What is your school\'s name?',
                 name: 'school',
+                default: 'UNCC',
             },
         ])
         
@@ -93,7 +99,7 @@ const employeeInput = async () => {
             newStaff.push(newIntern);
     }
 
-    console.log(newStaff);
+    // console.log(newStaff);
 
 };
 
@@ -113,7 +119,6 @@ async function promptUser () {
         return promptUser();
     } else {
         fs.writeFileSync('newTeam.html', generateTeam([...newStaff]))
-        console.log('spread operator ', ...newStaff);
         console.log("team is made");
     }
 }

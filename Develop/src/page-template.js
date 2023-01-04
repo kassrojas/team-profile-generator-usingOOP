@@ -6,10 +6,11 @@ const generateArticles = (newStaff) => {
             console.log('here');
             return `
             <article>
-            <h2>${member.name}: ${member.role}</h2>
+            <h2>${member.name}</h2>
+            <h5>${member.role}</h5>
             <ul>
                 <li>ID: ${member.id}</li>
-                <li>Email: <a href="mailto:${member.email}">${this.email}</a></li>
+                <li>Email: <a href="mailto:${member.email}">${member.email}</a></li>
                 <li>Office Number: ${member.officeNumber} </li>
             </ul>
             </article>`
@@ -17,10 +18,11 @@ const generateArticles = (newStaff) => {
         if (member.role === 'Engineer') {
             return `
             <article>
-            <h2>${member.name}: ${member.role}</h2>
+            <h2>${member.name}</h2>
+            <h5>${member.role}</h5>
             <ul>
                 <li>ID: ${member.id}</li>
-                <li>Email: <a href="mailto:${member.email}">${this.email}</a></li>
+                <li>Email: <a href="mailto:${member.email}">${member.email}</a></li>
                 <li>GitHub: <a href="https://www.github.com/${member.github}" target="_blank">${member.github}</a></li>
             </ul>
             </article>`
@@ -28,10 +30,11 @@ const generateArticles = (newStaff) => {
         if (member.role === 'Intern') {
             return `
             <article>
-            <h2>${member.name}: ${member.role}</h2>
+            <h2>${member.name}</h2>
+            <h5>${member.role}</h5>
             <ul>
                 <li>ID: ${member.id}</li>
-                <li>Email: <a href="mailto:${member.email}">${this.email}</a></li>
+                <li>Email: <a href="mailto:${member.email}">${member.email}</a></li>
                 <li>School: ${member.school}</li>
             </ul>
             </article>`
