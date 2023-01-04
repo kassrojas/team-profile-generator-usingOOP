@@ -48,16 +48,16 @@ describe("Employee", () => {
         });
     });
 
-    describe ("getId()", () => {
-        it ("should get id using getId()", () =>{
-            const testCase = 101;
-            const employee = new Employee("Boo", testCase);
+    describe ("getEmail()", () => {
+        it ("should get email using getEmail()", () =>{
+            const testCase = "test@email.com";
+            const employee = new Employee("Boo", 101, testCase);
             expect (employee.getId()).toBe(testCase);
         });
     });
 
-    describe ("getId()", () => {
-        it ("should get Employee using getRole()", () =>{
+    describe ("getRole()", () => {
+        it ("should get 'Employee' using getRole()", () =>{
             const testCase = "Employee";
             const employee = new Employee("Boo", 101, "test@email.com");
             expect (employee.getRole()).toBe(testCase);
