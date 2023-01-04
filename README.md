@@ -43,5 +43,5 @@ N/A
 
 ## Questions
 
-If you have any other questions, please visit my GitHub account (https://www.github.com/https://github.com/kassrojas/team-profile-generator-usingOOP).
+If you have any other questions, please visit my GitHub repo (https://www.github.com/https://github.com/kassrojas/team-profile-generator-usingOOP).
 
