@@ -10,57 +10,57 @@ describe("Employee", () => {
 
     describe ("setting name", () => {
         it ("should set name using constructor arguments", () =>{
-            const test = "Boo";
-            const employee = new Employee(test);
-            expect (employee.name).toBe(test);
+            const testCase = "Boo";
+            const employee = new Employee(testCase);
+            expect (employee.name).toEqual(testCase);
         });
     });
 
     describe ("setting id", () => {
         it ("should set id using constructor arguments", () =>{
-            const test = 101;
-            const employee = new Employee("Boo", test);
-            expect (employee.id).toBe(test);
+            const testCase = 101;
+            const employee = new Employee("Boo", testCase);
+            expect (employee.id).toEqual(testCase);
         });
     });
 
     describe ("setting email", () => {
         it ("should set email using constructor arguments", () =>{
-            const test = "test@email.com";
-            const employee = new Employee("Boo", 101, test);
-            expect (employee.email).toBe(test);
+            const testCase = "test@email.com";
+            const employee = new Employee("Boo", 101, testCase);
+            expect (employee.email).toEqual(testCase);
         });
     });
         
     describe ("getName()", () => {
         it ("should get name using getName()", () =>{
-            const test = "Boo";
-            const employee = new Employee(test);
-            expect (employee.getName()).toBe(test);
+            const testCase = "Boo";
+            const employee = new Employee(testCase);
+            expect (employee.getName()).toBe(testCase);
         });
     });
        
     describe ("getId()", () => {
         it ("should get id using getId()", () =>{
-            const test = 101;
-            const employee = new Employee("Boo", test);
-            expect (employee.getId()).toBe(test);
+            const testCase = 101;
+            const employee = new Employee("Boo", testCase);
+            expect (employee.getId()).toBe(testCase);
         });
     });
 
     describe ("getId()", () => {
         it ("should get id using getId()", () =>{
-            const test = 101;
-            const employee = new Employee("Boo", test);
-            expect (employee.getId()).toBe(test);
+            const testCase = 101;
+            const employee = new Employee("Boo", testCase);
+            expect (employee.getId()).toBe(testCase);
         });
     });
 
     describe ("getId()", () => {
         it ("should get Employee using getRole()", () =>{
-            const test = "Employee";
+            const testCase = "Employee";
             const employee = new Employee("Boo", 101, "test@email.com");
-            expect (employee.getRole()).toBe(test);
+            expect (employee.getRole()).toBe(testCase);
         });
     });
     
