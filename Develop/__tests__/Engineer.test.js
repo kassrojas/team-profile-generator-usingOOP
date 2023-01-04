@@ -1,4 +1,5 @@
 const Engineer = require("../lib/Engineer");
+// const Employee = require("../lib/Employee");
 
 describe("Engineer", () => {
     describe ("create instance of Engineer", () => {
@@ -7,11 +8,12 @@ describe("Engineer", () => {
             expect(typeof(engineer)).toBe("object");
         });
     });
-
+    
     describe ("set github", () => {
         it("should set github username using constructor arguments", () => {
+            // const employee = new Employee("Boo", 101, "test@email.com");
             const testCase = "someUserName";
-            const engineer = new Engineer("Boo", 101, "test@email.com", testCase);
+            const engineer = new Engineer(testCase);
             expect(engineer.github).toEqual(testCase);
         })
     });
