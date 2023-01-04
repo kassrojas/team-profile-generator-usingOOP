@@ -33,7 +33,7 @@ describe("Employee", () => {
     });
         
     describe ("getName()", () => {
-        it ("should get name using getName()", () =>{
+        it ("should return name from getName()", () =>{
             const testCase = "Boo";
             const employee = new Employee(testCase);
             expect (employee.getName()).toBe(testCase);
@@ -41,7 +41,7 @@ describe("Employee", () => {
     });
        
     describe ("getId()", () => {
-        it ("should get id using getId()", () =>{
+        it ("should return id from getId()", () =>{
             const testCase = 101;
             const employee = new Employee("Boo", testCase);
             expect (employee.getId()).toBe(testCase);
@@ -49,15 +49,15 @@ describe("Employee", () => {
     });
 
     describe ("getEmail()", () => {
-        it ("should get email using getEmail()", () =>{
+        it ("should return email from getEmail()", () =>{
             const testCase = "test@email.com";
             const employee = new Employee("Boo", 101, testCase);
-            expect (employee.getId()).toBe(testCase);
+            expect (employee.getEmail()).toBe(testCase);
         });
     });
 
     describe ("getRole()", () => {
-        it ("should get 'Employee' using getRole()", () =>{
+        it ("should return 'Employee' from getRole()", () =>{
             const testCase = "Employee";
             const employee = new Employee("Boo", 101, "test@email.com");
             expect (employee.getRole()).toBe(testCase);
