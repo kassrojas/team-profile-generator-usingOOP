@@ -14,6 +14,30 @@ describe("Employee", () => {
             const employee = new Employee(name);
             expect (employee.name).toBe(name);
         });
+        
+        it ("should set name using constructor arguments", () =>{
+            const name = "Kass";
+            const employee = new Employee(name);
+            expect (employee.name).toBe(name);
+        });
+        
+        it ("should set name using constructor arguments", () =>{
+            const name = "Kass";
+            const employee = new Employee(name);
+            expect (employee.name).toBe(name);
+        });
+        
+        it ("should set name using constructor arguments", () =>{
+            const name = "Kass";
+            const employee = new Employee(name);
+            expect (employee.name).toBe(name);
+        });
+        
+        it ("should set name using constructor arguments", () =>{
+            const name = "Kass";
+            const employee = new Employee(name);
+            expect (employee.name).toBe(name);
+        });
     })
 
 });
