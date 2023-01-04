@@ -12,7 +12,7 @@ describe("Engineer", () => {
         it("should set github username using constructor arguments", () => {
             const testCase = "someUserName";
             const engineer = new Engineer("Boo", 101, "test@email.com", testCase);
-            expect(engineer.github).toEqual(testCase)
+            expect(engineer.github).toEqual(testCase);
         })
     });
 
@@ -20,7 +20,7 @@ describe("Engineer", () => {
         it("should return github username from getGithub()", () => {
             const testCase = "someUserName";
             const engineer = new Engineer("Boo", 101, "test@email.com", testCase);
-            expect(engineer.getGithub()).toBe(testCase)
+            expect(engineer.getGithub()).toBe(testCase);
         })
     });
 
