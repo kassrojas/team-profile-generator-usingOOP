@@ -11,24 +11,24 @@ describe("Manager", () => {
     describe ("set officeNumber", () => {
         it("should set officeNumber using constructor arguments", () => {
             const testCase = 123;
-            const manager = new Manager("Boo", 101, "test@email.com", "Intern", testCase);
+            const manager = new Manager("Boo", 101, "test@email.com", "Manager", testCase);
             expect(manager.officeNumber).toEqual(testCase);
-        })
-    });
-
-    describe ("getOfficeNumber()", () => {
-        it("should return officeNumber from getOfficeNumber()", () => {
-            const testCase = "123";
-            const manager = new Manager("Boo", 101, "test@email.com", "Intern", testCase);
-            expect(manager.getOfficeNumber()).toBe(testCase);
         })
     });
 
     describe ("getRole()", () => {
         it("should return 'Manager' from getRole()", () => {
             const testCase = "Manager";
-            const manager = new Manager("Boo", 101, "test@email.com", testCase, "123");
+            const manager = new Manager("Boo", 101, "test@email.com", testCase);
             expect(manager.getRole()).toBe(testCase);
+        })
+    });
+    
+    describe ("getOfficeNumber()", () => {
+        it("should return officeNumber from getOfficeNumber()", () => {
+            const testCase = "123";
+            const manager = new Manager("Boo", 101, "test@email.com", "Manager", testCase);
+            expect(manager.getOfficeNumber()).toBe(testCase);
         })
     });
 
